@@ -1,5 +1,10 @@
 notebooks/thesis-vis-20-01-27.ipynb
 outputs/bak
+outputs/bak2
+outputs/heatmap-old.png
 outputs/cpdoc_as.sqlite
 outputs/cpdoc_as2.sqlite
+outputs/cpdoc_as-bak.sqlite
 outputs/cpdoc_as.sqlite-journal
+outputs/model_lda_20-iter2.pkl
+outputs/model_lda_20.pkl
