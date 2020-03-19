@@ -8,3 +8,11 @@ outputs/cpdoc_as-bak.sqlite
 outputs/cpdoc_as.sqlite-journal
 outputs/model_lda_20-iter2.pkl
 outputs/model_lda_20.pkl
+
+model_lda_100_rs_00.pkl
+notebooks/thesis-vis-AUX_clustermap.ipynb
+notebooks/backups
+
+notebooks/thesis-vis-20-02-29.ipynb
+temp_compare-pkl-sql.ipynb
+inputs/bak
