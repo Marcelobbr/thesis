@@ -67,19 +67,15 @@ It is noteworthy that the first 2 notebooks used data that is not available for 
 * heatmap.png: Image built at the thesis-vis-AUX.ipynb and exported to the Observable notebook.
 * heatmap-paper.png: Image built at the thesis-vis-AUX.ipynb and exported to the dissertation document.
 ## How to run the visualization
-Just go to the visualization notebook, see the instructions there and wait a few seconds for it to render. Here is the link for the visualization
+Just go to the visualization notebook, see the instructions there and wait a few seconds for it to render. Here is the link for the visualization:
 * https://observablehq.com/@marcelobbr/thesis-visualization
 
-
-```sh
-python3 test.py
-```
-
-
 ## Requirements
-If you are used to Linux and Python, this section isn't necessary, except in case of any malfunctioning or low experience with those softwares.
-
 ### Operating System
+Most of the jupyter notebooks can be run on windows, but there are 2 exceptions: 
+* 01-tesseract_ocr.ipynb: It uses tesseract, a program which runs only on Linux.
+* 05-doc_entities_person_extract_and_store.ipynb: It uses Palavras, a program which runs only on Linux.
+
 All the system was built using Linux Ubuntu. We strongly recommend that you also use a Linux Distribution or at least an OS from Unix family. In case you are using Windows, we suggest you to operate inside a Virtual Machine. Just follow one of the guides below:
 * [lifewire guide](https://www.lifewire.com/run-ubuntu-within-windows-virtualbox-2202098)
 * [VirtualBox guide](https://www.virtualbox.org/manual/ch01.html)
@@ -87,26 +83,33 @@ All the system was built using Linux Ubuntu. We strongly recommend that you also
 You will need the Ubuntu installer ISO file, which can be found at Ubuntu website. We worked with Ubuntu 18.04.3 LTS. LTS stands for long-term support and we suggest you to also choose LTS versions.
 * [Ubuntu installer](https://ubuntu.com/download/desktop)
 
-In Ubuntu, you will see that both C++ and Python are already installed, which is a great shortcut for you. Nevertheless, there are also some considerations about these programming languages. See below.
+In Ubuntu, you will see Python is already installed, which is a great shortcut for you. Nevertheless, there are also some considerations about these programming languages. See below.
 
-### C++
+The Palavras program is aimed at Entity Extraction. It is neccessary to pay for the licence, which the Fundação Getulio Vargas has access. There are also alternatives, such as [Stanford NLP](https://nlp.stanford.edu/software/).
 
-
-* cppimport==18.11.8
-* Mako==1.1.0
-* MarkupSafe==1.1.1
-* pybind11==2.3.0 
+The Tesseract program is free of charge. To use it, just follow [this link](https://www.pyimagesearch.com/2017/07/03/installing-tesseract-for-ocr/).
 
 ### Python
-We chose Python3 version of Python, while the standard version from Ubuntu is Python2. As there are some differences between the two versions, we suggest that you install python3. Anaconda is pretty handy to work with python as it has various preinstalled external Python packages.
+We chose Python3 version of Python, while the standard version from Ubuntu is Python2. As there are some differences between the two versions, we suggest that you install python3. Anaconda is pretty handy to work with python as it has various preinstalled external Python packages. To follow the link below:
+* [Anaconda Distribution](https://www.anaconda.com/distribution/)
 
 To work with most of the files, it is necessary to have jupyter notebook installed on your system (if you already installed Anaconda, you might skip this step). To install it, go to terminal and type:
 ```sh
 sudo apt update
 pip install jupyter
 ```
-Then go to your worspace folder with .ipynb files  and initialize jupyter notebook by doing
+Then go to your worspace folder with .ipynb files  and initialize jupyter notebook by typing:
 ```sh
 cd <your/folder/name>
 jupyter notebook
 ```
+The following Python packages are essential to run the notebooks, some of them pre-installed on Anaconda:
+> enchant - gensim - numpy - matplotlib - pandas - pyldsvis - seaborn - sqlite3 - 
+
+It is important to take note on the Python version of some programs
+* gensim==3.8.0
+* numpy==1.17.4 
+* pandas==0.25.3
+* pyldavis==2.1.2 
+* seaborn==0.9.0
+* sqlite3==3.30.1
