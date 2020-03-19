@@ -104,11 +104,12 @@ cd <your/folder/name>
 jupyter notebook
 ```
 The following Python packages are essential to run the notebooks, some of them pre-installed on Anaconda:
-> enchant - gensim - numpy - matplotlib - pandas - pyldsvis - seaborn - sqlite3 - 
+> enchant - gensim - numpy - matplotlib - nltk - pandas - pyldsvis - seaborn - sqlite3 - 
 
 It is important to take note on the Python version of some programs
 * gensim==3.8.0
 * numpy==1.17.4 
+* nltk==3.4.5
 * pandas==0.25.3
 * pyldavis==2.1.2 
 * seaborn==0.9.0
