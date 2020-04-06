@@ -13,29 +13,11 @@ Programming Languages: `Python` (IDE Jupyter Notebook) and `D3.js` (IDE Observab
 * [Renato Rocha Souza](https://emap.fgv.br/corpo-docente/renato-rocha-souza)
 
 ## Abstract
-Nos últimos anos, diversos avanços foram promovidos no campo de modelagem de tópicos,
-seja por meio do desenvolvimento de novos algoritmos, seja em processos de avaliação, assim
-como pelo surgimento de novas ferramentas de visualização. Esta última frente avança
-devido à percepção de que modelos de tópicos fornecem nova capacidade exploratória de
-grandes coleções de documentos, o que, aliado a soluções de visualização, pode trazer nova
-percepção analítica ao especialista de domínio.
+In recent years, several advances have been promoted in topic modeling, either through the development of new algorithms, or in evaluation processes, as well as by the emergence of novel visualization tools. This last field advances due to the realization that topic models provide new exploratory capabilities for large collections of documents which, combined with visualization solutions, can bring new insights to domain specialists.
 
-Este trabalho buscou introduzir uma solução interativa e de alta amplitude analítica, tendo
-como objeto de estudo uma coleção de documentos disponibilizada pelo CPDOC/FGV. A
-metodologia envolveu uso de resultados provenientes de modelagem de tópicos e transformações
-dos dados para o processo de visualização, o que demandou o uso de distintas
-ferramentas de programação disponíveis. Após investigação do estado da arte, a hipótese
-principal é que haveria baixa disponibilidade de ferramentas de visualização de tópicos
-que incorporasse uma visão global do corpus acompanhada por um aumento gradual do
-nível de detalhamento, passando pela análise de agrupamentos de objetos viabilizada pela
-modelagem de tópicos, até a exploração de cada objeto.
+This work sought to introduce a novel interactive and highly analytical solution, having as object of study a document collection provided by FGV/CPDOC. The methodology comprises the use of results from topic modeling and data transformations for the data visualization, which required using distinct programming languages avaliable. After the investigation of the state of the art, the main hypothesis is that there would be low availability of visualization tools aimed at topic models able to incorporate a global view of the corpus together with a gradual increase on the level of detail, passing through the analysis of object clusters provided by topic modeling, until the exploration of each unique object.
 
-A principal contribuição está na elaboração de uma nova ferramenta que atende a conceitos
-de granularidade, usuário-alvo e data-ink ratio por meio de uma linguagem de programação
-que forneça o máximo de flexibilidade. Por fim, conclui-se que haveria muito espaço de
-melhoria, seja por meio de aumento de interatividade, quanto por maior dedicação a etapas
-de pré-processamento no caso de coleções de documentos que tenham passado por processo
-de OCR.
+The main contribution is the implementation of a novel tool that meets the concepts of granularity, target-user and data-ink ratio through a programming language that provides maximum flexibility. Finally, it is reckoned that there would be room for improvement, either through increased interactivity, or through greater dedication to pre-processing steps in the case of document collections that have gone through OCR processes.
 
 ## Structure
 
