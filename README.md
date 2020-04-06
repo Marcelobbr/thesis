@@ -1,5 +1,5 @@
 # Master Thesis (Topic Explorer)
-This is the repository for my master thesis at EMAP-FGV, MSC in Mathematical Modeling.
+This is the repository for my master thesis at FGV/EMAP, MSc in Mathematical Modeling.
 
 In this project I have developed a visualization framework for results from topic modeling.
 
@@ -37,11 +37,50 @@ melhoria, seja por meio de aumento de interatividade, quanto por maior dedicaç�
 de pré-processamento no caso de coleções de documentos que tenham passado por processo
 de OCR.
 
-## Files List
+## Structure
+
+```bash
+.
+├── inputs
+│   ├── inputs/LDAcorpus.pkl
+│   ├── inputs/LDAdictionary.pkl
+│   ├── inputs/URLS-AAS-marcelo.csv
+│   ├── inputs/cpdoc_as.sqlite.gz
+│   ├── inputs/doc_id_list.pkl
+│   ├── inputs/model_lda_100_rs_00.pkl.gz
+│   ├── inputs/names_dataframe.csv
+│   ├── inputs/person_doc.pkl
+├── notebooks
+│   ├── 01-tesseract_ocr.ipynb
+│   ├── 02-text_processing.ipynb
+│   ├── 03-build_sql_database_docs.ipynb
+│   ├── 04.1-clustering_lda_test_models.ipynb
+│   ├── 04.2-clustering_lda_doc_topics_sql.ipynb
+│   ├── 05-doc_entities_person_extract_and_store.ipynb
+│   ├── 06.1-thesis-vis.ipynb
+│   ├── 06.2-thesis-vis-AUX.ipynb
+├── outputs
+│   ├── outputs/docs.json
+│   ├── outputs/heatmap-paper.png
+│   ├── outputs/heatmap.csv
+│   ├── outputs/heatmap.png
+│   ├── topics_dict.pkl
+│   ├── topics_metadata.json	
+│   ├── ...
+└── README.md
+
+2 directories, 8 files
+
+```
+## Detailed Structure
 It is important to emphasize that the aim of this project is to develop a visualization solution for topic modeling. The results from a previous topic modeling project were used here. But if you want to follow the role process, from data gathering to data visualization, I'm going to detach the preprocessing and topic modeling part from the visualization part.
 ### Notebooks
 #### Preprocessing and topic modeling
-It is noteworthy that the first 2 notebooks used data that is not available for public access. In spite of that, the topic modeling and visualization steps, which are the most important for this project, use data stored at the  SQLITE database.
+All the listed notebooks in this section were build during a previous project located at the following repository: 
+
+* https://github.com/rsouza/text-learning-tools
+
+It is noteworthy that the first 2 notebooks used data that is not available for public access. In spite of that, the topic modeling and visualization steps, which are the most important for this project, use data stored on SQLITE database.
 * 01-tesseract_ocr.ipynb: It transform image files (.tif) into text files (.txt) by applying Optical Character Recognition with the program Tesseract.
 * 02-text_processing.ipynb: It does data cleansing operations, mainly with regular expressions.
 * 03-build_sql_database_docs.ipynb: it stores .txt files of each document into SQLITE.
@@ -49,23 +88,23 @@ It is noteworthy that the first 2 notebooks used data that is not available for 
 * 04.2-clustering_lda_doc_topics_sql.ipynb: It stores topic modeling results into SQLITE
 * 05-doc_entities_person_extract_and_store.ipynb: It applies entity recognition tool (Palavras) to extract data about people ocurrences in documents and stores the data into SQLITE.
 #### Visualization
-* thesis-vis.ipynb: This is the main file which prepares the data for visualization by building a series of json files which are imported by the Observable notebook for D3.
-* thesis-vis-AUX.ipynb: It builds the auxiliar visualization which shows the whole view of the collection according to the heatmap of *scores* between documents and topics
+* 06.1-thesis-vis.ipynb: This is the main file which prepares the data for visualization by building a series of json files which are imported by the Observable notebook for D3.
+* 06.2-thesis-vis-AUX.ipynb: It builds the auxiliar visualization which shows the whole view of the collection according to the heatmap of *scores* between documents and topics
 ### Data
 #### Preprocessing and topic modeling
-* LDAcorpus.pkl: Results from the notebook 04.1-clustering_lda_test_models.ipynb.
-* LDAdictionary.pkl: Results from the notebook 04.1-clustering_lda_test_models.ipynb.
-* model_lda_100_rs_00.pkl.gz: Results from the notebook 04.1-clustering_lda_test_models.ipynb.
-* names_dataframe.csv: Database of names given by CPDOC.
-* cpdoc_as.sqlite.gz: All data for the notebooks aimed at visualization are stored here on the following tables: docs, persons, person_doc, topics, topic_doc.
-* URLS-AAS-marcelo.csv: Data with URLS for each group of documents (dossie).
+* inputs/LDAcorpus.pkl: Results from the notebook 04.1-clustering_lda_test_models.ipynb.
+* inputs/LDAdictionary.pkl: Results from the notebook 04.1-clustering_lda_test_models.ipynb.
+* inputs/model_lda_100_rs_00.pkl.gz: Results from the notebook 04.1-clustering_lda_test_models.ipynb.
+* inputs/names_dataframe.csv: Database of names given by CPDOC.
+* inputs/cpdoc_as.sqlite.gz: All data for the notebooks aimed at visualization are stored here on the following tables: docs, persons, person_doc, topics, topic_doc.
+* inputs/URLS-AAS-marcelo.csv: Data with URLS for each group of documents (dossie).
 
 #### Visualization
-* heatmap.csv: Database built from thesis-vis-AUX.ipynb aimed for the heatmap visualization
-* The JSON files with the prefixes names_list, tokens_list and topic were obtained from the notebook thesis-vis.ipynb.
+* outputs/heatmap.csv: Database built from 06.2-thesis-vis-AUX.ipynb aimed for the heatmap visualization
+* The JSON files with the prefixes names_list, tokens_list and topic were obtained from the notebook 06.1-thesis-vis.ipynb.
 ### Images
-* heatmap.png: Image built at the thesis-vis-AUX.ipynb and exported to the Observable notebook.
-* heatmap-paper.png: Image built at the thesis-vis-AUX.ipynb and exported to the dissertation document.
+* outputs/heatmap.png: Image built at the 06.2-thesis-vis-AUX.ipynb and exported to the Observable notebook.
+* outputs/heatmap-paper.png: Image built at the 06.2-thesis-vis-AUX.ipynb and exported to the dissertation document.
 ## How to run the visualization
 Just go to the visualization notebook, see the instructions there and wait a few seconds for it to render. Here is the link for the visualization:
 * https://observablehq.com/@marcelobbr/thesis-visualization
