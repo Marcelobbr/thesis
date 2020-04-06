@@ -1,5 +1,5 @@
-# Dissertation (Topic Explorer)
-This is the repository for my dissertation at EMAP-FGV, MSC in Mathematical Modeling.
+# Master Thesis (Topic Explorer)
+This is the repository for my master thesis at EMAP-FGV, MSC in Mathematical Modeling.
 
 In this project I have developed a visualization framework for results from topic modeling.
 
