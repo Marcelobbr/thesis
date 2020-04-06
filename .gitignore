@@ -17,3 +17,7 @@ notebooks/thesis-vis-20-02-29.ipynb
 temp_compare-pkl-sql.ipynb
 inputs/bak
 notebooks/02-2-text_processing-remove_unidentified_tokens.ipynb
+
+inputs/names_dataframe-string error.csv
+notebooks/thesis-exploratory.ipynb
+notebooks/thesis-retrieve_tables.ipynb
