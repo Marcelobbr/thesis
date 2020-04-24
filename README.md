@@ -3,8 +3,6 @@ This is the repository for my master thesis at FGV/EMAP, MSc in Mathematical Mod
 
 In this project I have developed a visualization framework for results from topic modeling.
 
-Programming Languages: `Python` (IDE Jupyter Notebook) and `D3.js` (IDE Observable).
-
 ## People
 ### Author
 * [Marcelo B. Barata Ribeiro](https://www.linkedin.com/in/marcelo-barata-ribeiro-213b8733/)
@@ -51,23 +49,23 @@ The main contribution is the implementation of a novel tool that meets the conce
 │   ├── ...
 └── README.md
 
-2 directories, 8 files
+3 directories, 363 files
 
 ```
 ## Detailed Structure
 It is important to emphasize that the aim of this project is to develop a visualization solution for topic modeling. The results from a previous topic modeling project were used here. But if you want to follow the role process, from data gathering to data visualization, I'm going to detach the preprocessing and topic modeling part from the visualization part.
 ### Notebooks
 #### Preprocessing and topic modeling
-All the listed notebooks in this section were build during a previous project located at the following repository: 
+All the listed notebooks in this section were built during a previous project located at the following repository: 
 
 * https://github.com/rsouza/text-learning-tools
 
-It is noteworthy that the first 2 notebooks used data that is not available for public access. In spite of that, the topic modeling and visualization steps, which are the most important for this project, use data stored on SQLITE database.
+It is noteworthy that the first 2 notebooks used data that is not available for public access. In spite of that, the topic modeling and visualization steps, which are the most important for this project, use data stored on SQLite database.
 * 01-tesseract_ocr.ipynb: It transform image files (.tif) into text files (.txt) by applying Optical Character Recognition with the program Tesseract.
 * 02-text_processing.ipynb: It does data cleansing operations, mainly with regular expressions.
-* 03-build_sql_database_docs.ipynb: it stores .txt files of each document into SQLITE.
+* 03-build_sql_database_docs.ipynb: it stores .txt files of each document into SQLite.
 * 04.1-clustering_lda_test_models.ipynb: It creates various different versions of topic modeling and saves each. 
-* 04.2-clustering_lda_doc_topics_sql.ipynb: It stores topic modeling results into SQLITE
+* 04.2-clustering_lda_doc_topics_sql.ipynb: It stores topic modeling results into SQLite
 * 05-doc_entities_person_extract_and_store.ipynb: It applies entity recognition tool (Palavras) to extract data about people ocurrences in documents and stores the data into SQLITE.
 #### Visualization
 * 06.1-thesis-vis.ipynb: This is the main file which prepares the data for visualization by building a series of json files which are imported by the Observable notebook for D3.
@@ -92,12 +90,14 @@ Just go to the visualization notebook, see the instructions there and wait a few
 * https://observablehq.com/@marcelobbr/thesis-visualization
 
 ## Requirements
+Programming Languages: `Python` (Jupyter Notebook), `D3.js` (Observable) and `Vega-Lite` (Observable).
+
 ### Operating System
 Most of the jupyter notebooks can be run on windows, but there are 2 exceptions: 
 * 01-tesseract_ocr.ipynb: It uses tesseract, a program which runs only on Linux.
 * 05-doc_entities_person_extract_and_store.ipynb: It uses Palavras, a program which runs only on Linux.
 
-All the system was built using Linux Ubuntu. We strongly recommend that you also use a Linux Distribution or at least an OS from Unix family. In case you are using Windows, we suggest you to operate inside a Virtual Machine. Just follow one of the guides below:
+In case you want to use/test all notebooks, we strongly recommend that you also use a Linux Distribution or at least an OS from Unix family. In case you are using Windows, we suggest you to operate inside a Virtual Machine. Just follow one of the guides below:
 * [lifewire guide](https://www.lifewire.com/run-ubuntu-within-windows-virtualbox-2202098)
 * [VirtualBox guide](https://www.virtualbox.org/manual/ch01.html)
 
@@ -125,7 +125,7 @@ cd <your/folder/name>
 jupyter notebook
 ```
 The following Python packages are essential to run the notebooks, some of them pre-installed on Anaconda:
-> enchant - gensim - numpy - matplotlib - nltk - pandas - pyldsvis - seaborn - sqlite3 - 
+> enchant - gensim - numpy - matplotlib - nltk - pandas - pyldavis - seaborn - sqlite3 - 
 
 It is important to take note on the Python version of some programs
 * gensim==3.8.0
