@@ -21,78 +21,64 @@ The main contribution is the implementation of a novel tool that meets the conce
 
 ```bash
 .
+
 ├── data
-│   ├── cpdoc_as.sqlite.gz
+│   ├── cpdoc_as.sqlite.gz                                  # All data for the notebooks aimed at visualization are stored here on the following tables: docs, persons, person_doc, topics, topic_doc.
 │   ├── doc_id_list.pkl
-│   ├── 05_names_dataframe.csv
+│   ├── 05_names_dataframe.csv                              # Database of names given by CPDOC.
 │   ├── 05_person_doc.pkl
-│   ├── 01_raw
-│   │   ├── URLS_AAS.csv
-│   │   ├── tables_dict.pkl         <- old version of tables (already exported to SQLite)
+│   ├── 01_raw                                              # folder containing original files
+│   │   ├── URLS_AAS.csv                                    # Data with URLS for each group of documents (dossie). File was given by CPDOC.
+│   │   ├── tables_dict.pkl                                 # old version of tables (already exported to SQLite)
+│   │   ├── samples (folder)                                # folder to store samples for the whole project. Useful for demonstration. (TO DO)
 │   ├── 04_model
-│   │   ├── LDAcorpus.pkl
-│   │   ├── LDAdictionary.pkl
-│   │   ├── model_lda_100_rs_00.pkl.gz
-│   ├── 06_outputs
+│   │   ├── corpus.pkl                                      # Results from the notebook 04_1_topic_model_tests.ipynb.
+│   │   ├── dictionary.pkl                                  # Results from the notebook 04_1_topic_model_tests.ipynb.
+│   │   ├── model_100.pkl.gz                                # Results from the notebook 04_1_topic_model_tests.ipynb.
+│   │   ├── pyldavis_output_100topics.html                  # Results from the notebook 04_1_topic_model_tests.ipynb.
+│   ├── 06_outputs                                          # The JSON files with the prefixes names_list, tokens_list and topic were obtained from the notebook 06_1_thesis_vis.ipynb.
 │   │   ├── names_list_<topic id>.json
 │   │   ├── tokens_list_<topic id>.json
 │   │   ├── topic_<topic id>.json
-│   ├── 06_outputs_aux
-│   │   ├── heatmap_paper.png
-│   │   ├── heatmap.png
-├── docs                                                <- documents related to the thesis
+│   ├── 06_outputs_aux                                      # files related to the heatmap vis (built at 06_2_thesis_vis_AUX)
+│   │   ├── heatmap_paper.png                               # Image exported to the Observable notebook.
+│   │   ├── heatmap.png                                     # Image exported to the thesis document.
+├── docs                                                    # documents related to the thesis
 ├── notebooks
-│   ├── 01_tesseract_ocr.ipynb                              <- needs refactoring
-│   ├── 02_text_processing.ipynb                            <- needs refactoring
-│   ├── 03_build_sql_database_docs.ipynb
-│   ├── 04_1_clustering_lda_test_models.ipynb
-│   ├── 04_2_clustering_lda_doc_topics_sql.ipynb
-│   ├── 05_1_doc_entities_person_names_list.ipynb           <- needs refactoring
-│   ├── 05_2_doc_entities_person_extract_and_store.ipynb
-│   ├── 06_1_thesis_vis.ipynb
-│   ├── 06_2_thesis_vis_AUX.ipynb
-├── src
-│   ├── utils.py                                            <- General functions
-│   ├── 06_vis.py                                           <- Scripts for vis notebooks
+│   ├── 01_tesseract_ocr.ipynb                              # It transform image files (.tif) into text files (.txt) by applying Optical Character Recognition with the program Tesseract. (NEEDS REFACTORING)
+│   ├── 02_text_processing.ipynb                            # It does data cleansing operations, mainly with regular expressions. (NEEDS REFACTORING)
+│   ├── 03_build_sql_database_docs.ipynb                    # it stores .txt files of each document into SQLite.
+│   ├── 04_1_topic_model_tests.ipynb                        # It tests various different versions of topic modeling and saves each. 
+│   ├── 04_2_topic_model_to_sql.ipynb                       # It stores topic modeling results into SQLite.
+│   ├── 05_1_doc_entities_person_names_list.ipynb           # it prepares data for entity extraction. (NEEDS REFACTORING)
+│   ├── 05_2_doc_entities_person_extract_and_store.ipynb    # It applies entity recognition tool (Palavras) to extract data about people ocurrences in documents and stores the data into SQLITE.
+│   ├── 06_1_thesis_vis.ipynb                               # This is the main file which prepares the data for visualization by building a series of json files which are imported by the Observable notebook for D3.
+│   ├── 06_2_thesis_vis_AUX.ipynb                           # It builds the auxiliar visualization which shows the whole view of the collection according to the heatmap of scores between documents and topics
+├── src                                                     # source code
+│   ├── utils.py                                            # General functions
+│   ├── 06_vis.py                                           # Scripts for vis notebooks
 ├── README.md
 └── requirements.txt
 
 3 directories, 363 files
-
 ```
 ## Detailed Structure
 It is important to emphasize that the aim of this project is to develop a visualization solution for topic modeling. The results from a previous topic modeling project were used here. But if you want to follow the role process, from data gathering to data visualization, I'm going to detach the preprocessing and topic modeling part from the visualization part.
-### Notebooks
-#### Preprocessing and topic modeling
-All the listed notebooks in this section were built during a previous project located at the following repository: 
 
+Important Notes: 
+* You can see brief descriptions of some of the files above by accessing the raw version of README or by just clicking [here](https://raw.githubusercontent.com/Marcelobbr/thesis/master/README.md).
+* Notebooks are sorted according to the order they should be run.
+    * It is noteworthy that the first 2 notebooks used data that is not available for public access. In spite of that, the topic modeling and visualization steps, which are the most important for this project, use data stored on SQLite database.
+* Data folder files generally have prefixes which associate them to the notebook which uses or builds them. 
+    * Those without prefixes are files related to multiple notebooks. 
+    * Subfolders were created to group multiple files related to the same notebook.
+* src has some functions which are used by notebooks. They might also have prefixes.
+    * utils.py has general functions. 
+
+Related project:
+*   The notebooks from prefix 01 to 05 are related to preprocessing and modeling steps. They were built (slightly refactored) during a previous project located at the following repository: 
 * https://github.com/rsouza/text-learning-tools
 
-It is noteworthy that the first 2 notebooks used data that is not available for public access. In spite of that, the topic modeling and visualization steps, which are the most important for this project, use data stored on SQLite database.
-* 01_tesseract_ocr.ipynb: It transform image files (.tif) into text files (.txt) by applying Optical Character Recognition with the program Tesseract.
-* 02_text_processing.ipynb: It does data cleansing operations, mainly with regular expressions.
-* 03_build_sql_database_docs.ipynb: it stores .txt files of each document into SQLite.
-* 04.1_clustering_lda_test_models.ipynb: It creates various different versions of topic modeling and saves each. 
-* 04.2_clustering_lda_doc_topics_sql.ipynb: It stores topic modeling results into SQLite
-* 05_doc_entities_person_extract_and_store.ipynb: It applies entity recognition tool (Palavras) to extract data about people ocurrences in documents and stores the data into SQLITE.
-#### Visualization
-* 06.1_thesis_vis.ipynb: This is the main file which prepares the data for visualization by building a series of json files which are imported by the Observable notebook for D3.
-* 06.2_thesis_vis_AUX.ipynb: It builds the auxiliar visualization which shows the whole view of the collection according to the heatmap of *scores* between documents and topics
-### Data
-#### Preprocessing and topic modeling
-* inputs/LDAcorpus.pkl: Results from the notebook 04.1_clustering_lda_test_models.ipynb.
-* inputs/LDAdictionary.pkl: Results from the notebook 04.1_clustering_lda_test_models.ipynb.
-* inputs/model_lda_100_rs_00.pkl.gz: Results from the notebook 04.1_clustering_lda_test_models.ipynb.
-* inputs/names_dataframe.csv: Database of names given by CPDOC.
-* inputs/cpdoc_as.sqlite.gz: All data for the notebooks aimed at visualization are stored here on the following tables: docs, persons, person_doc, topics, topic_doc.
-* inputs/URLS_AAS_marcelo.csv: Data with URLS for each group of documents (dossie).
-
-#### Visualization
-* outputs/heatmap.csv: Database built from 06.2_thesis_vis_AUX.ipynb aimed for the heatmap visualization
-* The JSON files with the prefixes names_list, tokens_list and topic were obtained from the notebook 06.1_thesis_vis.ipynb.
-### Images
-* outputs/heatmap.png: Image built at the 06.2_thesis_vis_AUX.ipynb and exported to the Observable notebook.
-* outputs/heatmap_paper.png: Image built at the 06.2_thesis_vis_AUX.ipynb and exported to the dissertation document.
 ## How to run the visualization
 Just go to the visualization notebook, see the instructions there and wait a few seconds for it to render. Here is the link for the visualization:
 * https://observablehq.com/@marcelobbr/thesis-visualization
