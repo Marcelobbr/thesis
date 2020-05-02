@@ -21,33 +21,41 @@ The main contribution is the implementation of a novel tool that meets the conce
 
 ```bash
 .
-├── inputs
-│   ├── inputs/LDAcorpus.pkl
-│   ├── inputs/LDAdictionary.pkl
-│   ├── inputs/URLS-AAS-marcelo.csv
-│   ├── inputs/cpdoc_as.sqlite.gz
-│   ├── inputs/doc_id_list.pkl
-│   ├── inputs/model_lda_100_rs_00.pkl.gz
-│   ├── inputs/names_dataframe.csv
-│   ├── inputs/person_doc.pkl
+├── data
+│   ├── cpdoc_as.sqlite.gz
+│   ├── doc_id_list.pkl
+│   ├── 05_names_dataframe.csv
+│   ├── 05_person_doc.pkl
+│   ├── 01_raw
+│   │   ├── URLS_AAS.csv
+│   │   ├── tables_dict.pkl         <- old version of tables (already exported to SQLite)
+│   ├── 04_model
+│   │   ├── LDAcorpus.pkl
+│   │   ├── LDAdictionary.pkl
+│   │   ├── model_lda_100_rs_00.pkl.gz
+│   ├── 06_outputs
+│   │   ├── names_list_<topic id>.json
+│   │   ├── tokens_list_<topic id>.json
+│   │   ├── topic_<topic id>.json
+│   ├── 06_outputs_aux
+│   │   ├── heatmap_paper.png
+│   │   ├── heatmap.png
+├── docs                                                <- documents related to the thesis
 ├── notebooks
-│   ├── 01-tesseract_ocr.ipynb
-│   ├── 02-text_processing.ipynb
-│   ├── 03-build_sql_database_docs.ipynb
-│   ├── 04.1-clustering_lda_test_models.ipynb
-│   ├── 04.2-clustering_lda_doc_topics_sql.ipynb
-│   ├── 05-doc_entities_person_extract_and_store.ipynb
-│   ├── 06.1-thesis-vis.ipynb
-│   ├── 06.2-thesis-vis-AUX.ipynb
-├── outputs
-│   ├── outputs/docs.json
-│   ├── outputs/heatmap-paper.png
-│   ├── outputs/heatmap.csv
-│   ├── outputs/heatmap.png
-│   ├── topics_dict.pkl
-│   ├── topics_metadata.json	
-│   ├── ...
-└── README.md
+│   ├── 01_tesseract_ocr.ipynb                              <- needs refactoring
+│   ├── 02_text_processing.ipynb                            <- needs refactoring
+│   ├── 03_build_sql_database_docs.ipynb
+│   ├── 04_1_clustering_lda_test_models.ipynb
+│   ├── 04_2_clustering_lda_doc_topics_sql.ipynb
+│   ├── 05_1_doc_entities_person_names_list.ipynb           <- needs refactoring
+│   ├── 05_2_doc_entities_person_extract_and_store.ipynb
+│   ├── 06_1_thesis_vis.ipynb
+│   ├── 06_2_thesis_vis_AUX.ipynb
+├── src
+│   ├── utils.py                                            <- General functions
+│   ├── 06_vis.py                                           <- Scripts for vis notebooks
+├── README.md
+└── requirements.txt
 
 3 directories, 363 files
 
@@ -61,30 +69,30 @@ All the listed notebooks in this section were built during a previous project lo
 * https://github.com/rsouza/text-learning-tools
 
 It is noteworthy that the first 2 notebooks used data that is not available for public access. In spite of that, the topic modeling and visualization steps, which are the most important for this project, use data stored on SQLite database.
-* 01-tesseract_ocr.ipynb: It transform image files (.tif) into text files (.txt) by applying Optical Character Recognition with the program Tesseract.
-* 02-text_processing.ipynb: It does data cleansing operations, mainly with regular expressions.
-* 03-build_sql_database_docs.ipynb: it stores .txt files of each document into SQLite.
-* 04.1-clustering_lda_test_models.ipynb: It creates various different versions of topic modeling and saves each. 
-* 04.2-clustering_lda_doc_topics_sql.ipynb: It stores topic modeling results into SQLite
-* 05-doc_entities_person_extract_and_store.ipynb: It applies entity recognition tool (Palavras) to extract data about people ocurrences in documents and stores the data into SQLITE.
+* 01_tesseract_ocr.ipynb: It transform image files (.tif) into text files (.txt) by applying Optical Character Recognition with the program Tesseract.
+* 02_text_processing.ipynb: It does data cleansing operations, mainly with regular expressions.
+* 03_build_sql_database_docs.ipynb: it stores .txt files of each document into SQLite.
+* 04.1_clustering_lda_test_models.ipynb: It creates various different versions of topic modeling and saves each. 
+* 04.2_clustering_lda_doc_topics_sql.ipynb: It stores topic modeling results into SQLite
+* 05_doc_entities_person_extract_and_store.ipynb: It applies entity recognition tool (Palavras) to extract data about people ocurrences in documents and stores the data into SQLITE.
 #### Visualization
-* 06.1-thesis-vis.ipynb: This is the main file which prepares the data for visualization by building a series of json files which are imported by the Observable notebook for D3.
-* 06.2-thesis-vis-AUX.ipynb: It builds the auxiliar visualization which shows the whole view of the collection according to the heatmap of *scores* between documents and topics
+* 06.1_thesis_vis.ipynb: This is the main file which prepares the data for visualization by building a series of json files which are imported by the Observable notebook for D3.
+* 06.2_thesis_vis_AUX.ipynb: It builds the auxiliar visualization which shows the whole view of the collection according to the heatmap of *scores* between documents and topics
 ### Data
 #### Preprocessing and topic modeling
-* inputs/LDAcorpus.pkl: Results from the notebook 04.1-clustering_lda_test_models.ipynb.
-* inputs/LDAdictionary.pkl: Results from the notebook 04.1-clustering_lda_test_models.ipynb.
-* inputs/model_lda_100_rs_00.pkl.gz: Results from the notebook 04.1-clustering_lda_test_models.ipynb.
+* inputs/LDAcorpus.pkl: Results from the notebook 04.1_clustering_lda_test_models.ipynb.
+* inputs/LDAdictionary.pkl: Results from the notebook 04.1_clustering_lda_test_models.ipynb.
+* inputs/model_lda_100_rs_00.pkl.gz: Results from the notebook 04.1_clustering_lda_test_models.ipynb.
 * inputs/names_dataframe.csv: Database of names given by CPDOC.
 * inputs/cpdoc_as.sqlite.gz: All data for the notebooks aimed at visualization are stored here on the following tables: docs, persons, person_doc, topics, topic_doc.
-* inputs/URLS-AAS-marcelo.csv: Data with URLS for each group of documents (dossie).
+* inputs/URLS_AAS_marcelo.csv: Data with URLS for each group of documents (dossie).
 
 #### Visualization
-* outputs/heatmap.csv: Database built from 06.2-thesis-vis-AUX.ipynb aimed for the heatmap visualization
-* The JSON files with the prefixes names_list, tokens_list and topic were obtained from the notebook 06.1-thesis-vis.ipynb.
+* outputs/heatmap.csv: Database built from 06.2_thesis_vis_AUX.ipynb aimed for the heatmap visualization
+* The JSON files with the prefixes names_list, tokens_list and topic were obtained from the notebook 06.1_thesis_vis.ipynb.
 ### Images
-* outputs/heatmap.png: Image built at the 06.2-thesis-vis-AUX.ipynb and exported to the Observable notebook.
-* outputs/heatmap-paper.png: Image built at the 06.2-thesis-vis-AUX.ipynb and exported to the dissertation document.
+* outputs/heatmap.png: Image built at the 06.2_thesis_vis_AUX.ipynb and exported to the Observable notebook.
+* outputs/heatmap_paper.png: Image built at the 06.2_thesis_vis_AUX.ipynb and exported to the dissertation document.
 ## How to run the visualization
 Just go to the visualization notebook, see the instructions there and wait a few seconds for it to render. Here is the link for the visualization:
 * https://observablehq.com/@marcelobbr/thesis-visualization
@@ -94,8 +102,8 @@ Programming Languages: `Python` (Jupyter Notebook), `D3.js` (Observable) and `Ve
 
 ### Operating System
 Most of the jupyter notebooks can be run on windows, but there are 2 exceptions: 
-* 01-tesseract_ocr.ipynb: It uses tesseract, a program which runs only on Linux.
-* 05-doc_entities_person_extract_and_store.ipynb: It uses Palavras, a program which runs only on Linux.
+* 01_tesseract_ocr.ipynb: It uses tesseract, a program which runs only on Linux.
+* 05_doc_entities_person_extract_and_store.ipynb: It uses Palavras, a program which runs only on Linux.
 
 In case you want to use/test all notebooks, we strongly recommend that you also use a Linux Distribution or at least an OS from Unix family. In case you are using Windows, we suggest you to operate inside a Virtual Machine. Just follow one of the guides below:
 * [lifewire guide](https://www.lifewire.com/run-ubuntu-within-windows-virtualbox-2202098)
