@@ -53,7 +53,7 @@ The main contribution is the implementation of a novel tool that meets the conce
 │   ├── 06_2_thesis_vis_AUX.ipynb                           # It builds the auxiliar visualization which shows the whole view of the collection according to the heatmap of scores between documents and topics
 ├── src                                                     # Source code for use in this project.
 │   ├── utils.py                                            # Functions used across the project
-│   ├── 06_vis.py                                           # Scripts for visualization step
+│   ├── d06_vis                                             # Scripts for visualization step
 ├── README.md
 └── requirements.txt
 
@@ -74,6 +74,20 @@ Important Notes:
 Related project:
 *   The notebooks from prefix 01 to 05 are related to preprocessing and modeling steps. They were built (slightly refactored) during a previous project located at the following repository: 
     * https://github.com/rsouza/text-learning-tools
+
+## Coding Workflow
+Functions can be imported into a notebook as follows. First we tell the notebook where the functions are:
+
+```sh
+import os
+import sys
+sys.path.append(os.path.join('..', 'src'))
+```
+
+Then we state which functions to import
+```sh
+from d06_vis.data_ops import retrieve_tokens, build_vis_table, get_melted_df
+```
 
 ## How to run the visualization
 Just go to the visualization notebook, see the instructions there and wait a few seconds for it to render. Here is the link for the visualization:
@@ -117,4 +131,7 @@ jupyter notebook
 The following Python packages are essential to run the notebooks, some of them pre-installed on Anaconda:
 > enchant - gensim - numpy - matplotlib - nltk - pandas - pyldavis - seaborn - sqlite3 - 
 
-The version of each package is located at `requirements.txt`.
+The version of each package is located at `requirements.txt`. They might be installed on a virtual environment by using the command:
+```
+pip install -r requirements.txt
+```

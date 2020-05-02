@@ -1,10 +1,61 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Jupyter Notebook
+.ipynb_checkpoints
+.ipynb
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# marcelo files
 data/bin
 data/tmp
 data/cpdoc_as.sqlite
 data/cpdoc_as.sqlite-journal
 data/01_raw/tables_dict.pkl
 data/04_model/model_100.pkl
-
 notebooks/backups
 notebooks/02_text_processing_ignore_case.ipynb
 notebooks/02_2_text_processing_remove_unidentified_tokens.ipynb
