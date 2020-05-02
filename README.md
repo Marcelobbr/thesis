@@ -21,18 +21,18 @@ The main contribution is the implementation of a novel tool that meets the conce
 ```bash
 .
 ├── data
-│   ├── cpdoc_as.sqlite.gz                                  # All data for the notebooks aimed at visualization are stored here on the following tables: docs, persons, person_doc, topics, topic_doc.
+│   ├── cpdoc_as.sqlite.gz                                  # All data for the notebooks aimed at visualization are stored here on the following tables: docs, persons, person_doc, topics, topic_doc. You need to unzip before using it.
 │   ├── doc_id_list.pkl
 │   ├── 05_names_dataframe.csv                              # Database of names given by CPDOC.
 │   ├── 05_person_doc.pkl
-│   ├── 01_raw                                              # folder containing original files
+│   ├── 01_raw                                              # folder containing original (unchanged) files
 │   │   ├── URLS_AAS.csv                                    # Data with URLS for each group of documents (dossie). File was given by CPDOC.
 │   │   ├── samples (folder)                                # folder to store samples for the whole project. Useful for demonstration. (TO DO)
-│   ├── 04_model
-│   │   ├── corpus.pkl                                      # Results from the notebook 04_1_topic_model_tests.ipynb.
-│   │   ├── dictionary.pkl                                  # Results from the notebook 04_1_topic_model_tests.ipynb.
-│   │   ├── model_100.pkl.gz                                # Results from the notebook 04_1_topic_model_tests.ipynb.
-│   │   ├── pyldavis_output_100topics.html                  # Results from the notebook 04_1_topic_model_tests.ipynb.
+│   ├── 04_model                                            # Results from the notebook 04_1_topic_model_tests.ipynb.
+│   │   ├── corpus.pkl                                      
+│   │   ├── dictionary.pkl                                  
+│   │   ├── model_100.pkl.gz                                # You need to unzip before using it.
+│   │   ├── pyldavis_output_100topics.html                  
 │   ├── 06_outputs                                          # The JSON files with the prefixes names_list, tokens_list and topic were obtained from the notebook 06_1_thesis_vis.ipynb.
 │   │   ├── names_list_<topic id>.json
 │   │   ├── tokens_list_<topic id>.json
@@ -42,7 +42,7 @@ The main contribution is the implementation of a novel tool that meets the conce
 │   │   ├── heatmap.png                                     # Image exported to the thesis document.
 ├── docs                                                    # documents related to the thesis
 ├── notebooks
-│   ├── 01_tesseract_ocr.ipynb                              # It transform image files (.tif) into text files (.txt) by applying Optical Character Recognition with the program Tesseract. (NEEDS REFACTORING)
+│   ├── 01_tesseract_ocr.ipynb                              # It transforms image files (.tif) into text files (.txt) by applying Optical Character Recognition with the program Tesseract. (NEEDS REFACTORING)
 │   ├── 02_text_processing.ipynb                            # It does data cleansing operations, mainly with regular expressions. (NEEDS REFACTORING)
 │   ├── 03_build_sql_database_docs.ipynb                    # it stores .txt files of each document into SQLite.
 │   ├── 04_1_topic_model_tests.ipynb                        # It tests various different versions of topic modeling and saves each. 
@@ -51,13 +51,13 @@ The main contribution is the implementation of a novel tool that meets the conce
 │   ├── 05_2_doc_entities_person_extract_and_store.ipynb    # It applies entity recognition tool (Palavras) to extract data about people ocurrences in documents and stores the data into SQLITE.
 │   ├── 06_1_thesis_vis.ipynb                               # This is the main file which prepares the data for visualization by building a series of json files which are imported by the Observable notebook for D3.
 │   ├── 06_2_thesis_vis_AUX.ipynb                           # It builds the auxiliar visualization which shows the whole view of the collection according to the heatmap of scores between documents and topics
-├── src                                                     # source code
-│   ├── utils.py                                            # General functions
-│   ├── 06_vis.py                                           # Scripts for vis notebooks
+├── src                                                     # Source code for use in this project.
+│   ├── utils.py                                            # Functions used across the project
+│   ├── 06_vis.py                                           # Scripts for visualization step
 ├── README.md
 └── requirements.txt
 
-3 directories, 363 files
+4 directories, 366 files
 ```
 It is important to emphasize that the aim of this project is to develop a visualization solution for topic modeling. The results from a previous topic modeling project were used here. But if you want to follow the role process, from data gathering to data visualization, I'm going to detach the preprocessing and topic modeling part from the visualization part.
 
