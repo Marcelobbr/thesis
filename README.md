@@ -18,10 +18,8 @@ This work sought to introduce a novel interactive and highly analytical solution
 The main contribution is the implementation of a novel tool that meets the concepts of granularity, target-user and data-ink ratio through a programming language that provides maximum flexibility. Finally, it is reckoned that there would be room for improvement, either through increased interactivity, or through greater dedication to pre-processing steps in the case of document collections that have gone through OCR processes.
 
 ## Structure
-
 ```bash
 .
-
 ├── data
 │   ├── cpdoc_as.sqlite.gz                                  # All data for the notebooks aimed at visualization are stored here on the following tables: docs, persons, person_doc, topics, topic_doc.
 │   ├── doc_id_list.pkl
@@ -29,7 +27,6 @@ The main contribution is the implementation of a novel tool that meets the conce
 │   ├── 05_person_doc.pkl
 │   ├── 01_raw                                              # folder containing original files
 │   │   ├── URLS_AAS.csv                                    # Data with URLS for each group of documents (dossie). File was given by CPDOC.
-│   │   ├── tables_dict.pkl                                 # old version of tables (already exported to SQLite)
 │   │   ├── samples (folder)                                # folder to store samples for the whole project. Useful for demonstration. (TO DO)
 │   ├── 04_model
 │   │   ├── corpus.pkl                                      # Results from the notebook 04_1_topic_model_tests.ipynb.
@@ -62,7 +59,6 @@ The main contribution is the implementation of a novel tool that meets the conce
 
 3 directories, 363 files
 ```
-## Detailed Structure
 It is important to emphasize that the aim of this project is to develop a visualization solution for topic modeling. The results from a previous topic modeling project were used here. But if you want to follow the role process, from data gathering to data visualization, I'm going to detach the preprocessing and topic modeling part from the visualization part.
 
 Important Notes: 
@@ -77,7 +73,7 @@ Important Notes:
 
 Related project:
 *   The notebooks from prefix 01 to 05 are related to preprocessing and modeling steps. They were built (slightly refactored) during a previous project located at the following repository: 
-* https://github.com/rsouza/text-learning-tools
+    * https://github.com/rsouza/text-learning-tools
 
 ## How to run the visualization
 Just go to the visualization notebook, see the instructions there and wait a few seconds for it to render. Here is the link for the visualization:

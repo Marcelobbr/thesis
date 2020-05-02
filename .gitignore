@@ -1,23 +1,15 @@
-notebooks/thesis-vis-20-01-27.ipynb
-outputs/bak
-outputs/bak2
-outputs/heatmap-old.png
-inputs/cpdoc_as.sqlite
-inputs/cpdoc_as2.sqlite
-inputs/cpdoc_as-bak.sqlite
-outputs/cpdoc_as.sqlite-journal
-outputs/model_lda_20-iter2.pkl
-outputs/model_lda_20.pkl
+data/bin
+data/tmp
+data/cpdoc_as.sqlite
+data/cpdoc_as.sqlite-journal
+data/01_raw/tables_dict.pkl
+data/04_model/model_100.pkl
 
-model_lda_100_rs_00.pkl
-notebooks/thesis-vis-AUX_clustermap.ipynb
 notebooks/backups
-
-notebooks/thesis-vis-20-02-29.ipynb
-temp_compare-pkl-sql.ipynb
-inputs/bak
-notebooks/02-2-text_processing-remove_unidentified_tokens.ipynb
-
-inputs/names_dataframe-string error.csv
-notebooks/thesis-exploratory.ipynb
-notebooks/thesis-retrieve_tables.ipynb
+notebooks/02_text_processing_ignore_case.ipynb
+notebooks/02_2_text_processing_remove_unidentified_tokens.ipynb
+notebooks/temp_compare_pkl_sql.ipynb
+notebooks/thesis_exploratory.ipynb
+notebooks/thesis_retrieve_tables.ipynb
+notebooks/thesis_vis_AUX_clustermap.ipynb
+notebooks/d3_objects_str_builder.ipynb
