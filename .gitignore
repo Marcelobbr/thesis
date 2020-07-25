@@ -56,6 +56,7 @@ data/cpdoc_as.sqlite
 data/cpdoc_as.sqlite-journal
 data/01_raw/tables_dict.pkl
 data/04_model/model_100.pkl
+data/04_model/bak
 notebooks/backups
 notebooks/02_text_processing_ignore_case.ipynb
 notebooks/02_2_text_processing_remove_unidentified_tokens.ipynb
