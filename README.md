@@ -1,7 +1,7 @@
 # Master Thesis (Topic Explorer)
 This is the repository for my master thesis at FGV/EMAP, MSc in Mathematical Modeling.
 
-In this project I have developed a visualization framework for results from topic modeling.
+In this project, I have developed a visualization framework for results from topic modeling.
 
 ## People
 ### Author
@@ -11,11 +11,11 @@ In this project I have developed a visualization framework for results from topi
 * [Renato Rocha Souza](https://emap.fgv.br/corpo-docente/renato-rocha-souza)
 
 ## Abstract
-In recent years, several advances have been promoted in topic modeling, either through the development of new algorithms, or in evaluation processes, as well as by the emergence of novel visualization tools. This last field advances due to the realization that topic models provide new exploratory capabilities for large collections of documents which, combined with visualization solutions, can bring new insights to domain specialists.
+In recent years, several advances have been promoted in topic modeling, either through the development of new algorithms or in evaluation processes, as well as by the emergence of novel visualization tools. This last field advances due to the realization that topic models provide new exploratory capabilities for large collections of documents which, combined with visualization solutions, can bring new insights to domain specialists.
 
-This work sought to introduce a novel interactive and highly analytical solution, having as object of study a document collection provided by FGV/CPDOC. The methodology comprises the use of results from topic modeling and data transformations for the data visualization, which required using distinct programming languages avaliable. After the investigation of the state of the art, the main hypothesis is that there would be low availability of visualization tools aimed at topic models able to incorporate a global view of the corpus together with a gradual increase on the level of detail, passing through the analysis of object clusters provided by topic modeling, until the exploration of each unique object.
+This work sought to introduce a novel interactive and highly analytical solution, having a document collection provided by FGV/CPDOC as the object of study. The methodology comprises the use of results from topic modeling and data transformations for the data visualization, which required using distinct programming languages available. After the investigation of the state of the art, the main hypothesis is that there would be low availability of visualization tools aimed at topic models able to incorporate a global view of the corpus together with a gradual increase on the level of detail, passing through the analysis of object clusters provided by topic modeling, until the exploration of each unique object.
 
-The main contribution is the implementation of a novel tool that meets the concepts of granularity, target-user and data-ink ratio through a programming language that provides maximum flexibility. Finally, it is reckoned that there would be room for improvement, either through increased interactivity, or through greater dedication to pre-processing steps in the case of document collections that have gone through OCR processes.
+The main contribution is the implementation of a novel tool that meets the concepts of granularity, target-user, and data-ink ratio through a programming language that provides maximum flexibility. Finally, it is reckoned that there would be room for improvement, either through increased interactivity or through a greater dedication to pre-processing steps in the case of document collections that have gone through OCR processes.
 
 ## Structure
 ```bash
@@ -59,13 +59,13 @@ The main contribution is the implementation of a novel tool that meets the conce
 
 4 directories, 366 files
 ```
-It is important to emphasize that the aim of this project is to develop a visualization solution for topic modeling. The results from a previous topic modeling project were used here. But if you want to follow the role process, from data gathering to data visualization, I'm going to detach the preprocessing and topic modeling part from the visualization part.
+It is important to emphasize that this project aims to develop a visualization solution for topic modeling. The results from a previous topic modeling project were used here. But if you want to follow the role process, from data gathering to data visualization, I'm going to detach the preprocessing and topic modeling part from the visualization part.
 
 Important Notes: 
 * You can see brief descriptions of some of the files above by accessing the raw version of README or by just clicking [here](https://raw.githubusercontent.com/Marcelobbr/thesis/master/README.md).
 * Notebooks are sorted according to the order they should be run.
-    * It is noteworthy that the first 2 notebooks used data that is not available for public access. In spite of that, the topic modeling and visualization steps, which are the most important for this project, use data stored on SQLite database.
-* Data folder files generally have prefixes which associate them to the notebook which uses or builds them. 
+    * It is noteworthy that the first 2 notebooks used data that is not available for public access. Despite that, the topic modeling and visualization steps, which are the most important for this project, use data stored on SQLite database.
+* Data folder files generally have prefixes that associate them to the notebook that uses or builds them. 
     * Those without prefixes are files related to multiple notebooks. 
     * Subfolders were created to group multiple files related to the same notebook.
 * src has some functions which are used by notebooks. They might also have prefixes.
@@ -76,7 +76,7 @@ Related project:
     * https://github.com/rsouza/text-learning-tools
 
 ## Coding Workflow
-Functions can be imported into a notebook as follows. First we tell the notebook where the functions are:
+Functions can be imported into a notebook as follows. First, we tell the notebook where the functions are:
 
 ```sh
 import os
@@ -98,21 +98,21 @@ Programming Languages: `Python` (Jupyter Notebook), `D3.js` (Observable) and `Ve
 
 ### Operating System
 Most of the jupyter notebooks can be run on windows, but there are 2 exceptions: 
-* 01_tesseract_ocr.ipynb: It uses tesseract, a program which runs only on Linux.
-* 05_doc_entities_person_extract_and_store.ipynb: It uses Palavras, a program which runs only on Linux.
+* 01_tesseract_ocr.ipynb: It uses tesseract, a program that runs only on Linux.
+* 05_doc_entities_person_extract_and_store.ipynb: It uses Palavras, a program that runs only on Linux.
 
-In case you want to use/test all notebooks, we strongly recommend that you also use a Linux Distribution or at least an OS from Unix family. In case you are using Windows, we suggest you to operate inside a Virtual Machine. Just follow one of the guides below:
+In case you want to use/test all notebooks, we strongly recommend that you also use a Linux Distribution or at least an OS from Unix family. In case you are using Windows, we suggest you operate inside a Virtual Machine. Just follow one of the guides below:
 * [lifewire guide](https://www.lifewire.com/run-ubuntu-within-windows-virtualbox-2202098)
 * [VirtualBox guide](https://www.virtualbox.org/manual/ch01.html)
 
-You will need the Ubuntu installer ISO file, which can be found at Ubuntu website. We worked with Ubuntu 18.04.3 LTS. LTS stands for long-term support and we suggest you to also choose LTS versions.
+You will need the Ubuntu installer ISO file, which can be found on Ubuntu website. We worked with Ubuntu 18.04.3 LTS. LTS stands for long-term support and we suggest you also choose LTS versions.
 * [Ubuntu installer](https://ubuntu.com/download/desktop)
 
 In Ubuntu, you will see Python is already installed, which is a great shortcut for you. Nevertheless, there are also some considerations about these programming languages. See below.
 
-The Palavras program is aimed at Entity Extraction. It is neccessary to pay for the licence, which the Fundação Getulio Vargas has access. There are also alternatives, such as [Stanford NLP](https://nlp.stanford.edu/software/).
+The Palavras program is aimed at Entity Extraction. It is necessary to pay for the license, which the Fundação Getulio Vargas has access to. There are also alternatives, such as [Stanford NLP](https://nlp.stanford.edu/software/).
 
-The Tesseract program is free of charge. To use it, just follow [this link](https://www.pyimagesearch.com/2017/07/03/installing-tesseract-for-ocr/).
+The Tesseract program is free of charge. In order to use it, just follow [this link](https://www.pyimagesearch.com/2017/07/03/installing-tesseract-for-ocr/).
 
 ### Python
 We chose Python3 version of Python, while the standard version from Ubuntu is Python2. As there are some differences between the two versions, we suggest that you install python3. Anaconda is pretty handy to work with python as it has various preinstalled external Python packages. To follow the link below:
@@ -123,7 +123,7 @@ To work with most of the files, it is necessary to have jupyter notebook install
 sudo apt update
 pip install jupyter
 ```
-Then go to your worspace folder with .ipynb files  and initialize jupyter notebook by typing:
+Then go to your workspace folder with .ipynb files  and initialize jupyter notebook by typing:
 ```sh
 cd <your/folder/name>
 jupyter notebook
